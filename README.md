@@ -25,3 +25,8 @@ Things you may want to cover:
 
 http://localhost:3000/users/sign_in
 "# game_material_app" 
+
+
+todo
+. app/views/devise/registrations/new ->新規作成 ...受注者か発注者か区別
+- migrationファイルの変更。modelの作成。↑のファイルにcheckboxを追加。
