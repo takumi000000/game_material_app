@@ -5,5 +5,12 @@
 <%= link_to "依頼者ページに移動する", requester_index_path %>
 <%= link_to "受注者ページに移動する", contractor_index_path %>
 
-<div><a><%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する --></a></div>
-<div><a><%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する --></a></div>
+<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+  <h3> ユーザー名： <%= current_user.email %> </h4>
+  <div>
+    <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a> <!-- ログアウトをする -->
+  </div>
+<% else %>
+  <div><a><%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する --></a></div>
+  <div><a><%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する --></a></div>
+<% end %>

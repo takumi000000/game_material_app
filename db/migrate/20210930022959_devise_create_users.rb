@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, default: "名無しのユーザー"
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.integer :check_job
+      t.integer :check_job, default: 1
       t.string :introduction, default: ""
       t.binary :icon
 
