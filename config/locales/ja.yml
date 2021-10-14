@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      devise: デバイス
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: パスワードを記憶する
