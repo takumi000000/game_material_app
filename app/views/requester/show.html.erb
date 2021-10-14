@@ -2,8 +2,6 @@
 
 <div class="my_page_head"><%= image_tag 'icon.png', size: '100x100', class:'icon' %></div>
 
-<%= link_to "作品を投稿する", material_storages_new_path %>
-
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
   <h3> ユーザー名： <%= current_user.email %></h4>
   <div>

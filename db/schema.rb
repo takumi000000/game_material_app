@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_022959) do
+ActiveRecord::Schema.define(version: 2021_10_07_052524) do
+
+  create_table "material_genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "material_kinds", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "material_storages", force: :cascade do |t|
+    t.string "file_name", null: false
+    t.string "title", null: false
+    t.integer "user_id", null: false
+    t.integer "material_kind_id", null: false
+    t.integer "material_genre_id", null: false
+    t.integer "request_id", default: 0
+    t.date "start_date"
+    t.date "completion_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "名無しのユーザー"

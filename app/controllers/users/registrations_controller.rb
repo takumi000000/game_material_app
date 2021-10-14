@@ -59,4 +59,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  def after_sign_up_path_for(resource)
+    @user = User.find(current_user.id)
+    if @user.check_job == 1
+      "/requester/#{current_user.id}"     
+    elsif @user.check_job == 2
+      "/contractor/#{current_user.id}"
+    end
+  end
 end

@@ -24,4 +24,18 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  #ログイン後のリダイレクト先
+  def after_sign_in_path_for(resource)
+    @user = User.find(current_user.id)
+    if @user.check_job == 1
+      "/requester/#{current_user.id}"   
+    elsif @user.check_job == 2
+      "/contractor/#{current_user.id}"
+    end
+  end
+  #ログアウト後のリダイレクト先
+  def after_sign_out_path_for(resource)
+    root_path
+  end 
 end

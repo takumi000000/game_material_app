@@ -1,0 +1,7 @@
+<h1>投稿作品一覧</h1>
+
+<% @materials.each do |material| %>
+<%= image_tag "/images/#{material.file_name}", size: "200x200" %>
+<h3><%= material.title %></h3>
+<% end %>
+<%= link_to "topに戻る", root_path %>
