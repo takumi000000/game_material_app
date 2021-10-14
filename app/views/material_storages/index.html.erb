@@ -2,6 +2,6 @@
 
 <% @materials.each do |material| %>
 <%= image_tag "/images/#{material.file_name}", size: "200x200" %>
-<h3><%= material.title %></h3>
+<h3><%= link_to(material.title, material_storage_path(material)) %></h3>
 <% end %>
 <%= link_to "topに戻る", root_path %>

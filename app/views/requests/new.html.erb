@@ -1,13 +1,9 @@
-<h1>画像登録</h1>
-<%= link_to "Top画面へ", root_path %>
+<h1>依頼作成</h1>
+<%= link_to "Topに戻る", root_path %>
 <%= form_with model: @material, multipart: true, local: true do |f| %>
   <table>
     <tr>
-      <th>ファイル</th>
-      <td><%= f.file_field :file_name %></td>
-    </tr>
-    <tr>
-      <th>タイトル</th>
+      <th>依頼タイトル</th>
       <td><%= f.text_field :title %></td>
     </tr>
     <tr>
@@ -15,8 +11,12 @@
       <td><%= f.select :material_kind_id, @kinds_option %></td>
     </tr>
     <tr>
-      <th>素材のジャンル</th>
-      <td><%= f.select :material_genre_id, @genres_option %></td>
+      <th>納期</th>
+      <td><%= f.datetime_field :sample_at, step: 3000 %></td>
+    </tr>
+    <tr>
+      <th>仕様</th>
+      <td><%= f.text_area :sample_at, step: 3000 %></td>
     </tr>
   </table>
   <%= f.submit "登録" %>

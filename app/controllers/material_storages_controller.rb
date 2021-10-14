@@ -12,12 +12,17 @@ class MaterialStoragesController < ApplicationController
     tempfile = params[:material_storage][:file_name]
     original_filename = tempfile.original_filename
     @material.file_name = original_filename
+    @material.user_id = current_user.id
     if @material.save
       File.binwrite("public/images/" + original_filename, tempfile.read)
       redirect_to material_storages_path
     else
       render "new"
     end
+  end
+
+  def show
+    @material = MaterialStorage.find(params[:id])
   end
 
   private
