@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :contractor
   resources :requester
   resources :material_storages
+  resources :requests
 
   get 'pages/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
