@@ -1,6 +1,6 @@
 <h1>依頼作成</h1>
 <%= link_to "Topに戻る", root_path %>
-<%= form_with model: @material, multipart: true, local: true do |f| %>
+<%= form_with model: @request, multipart: true, local: true do |f| %>
   <table>
     <tr>
       <th>依頼タイトル</th>
@@ -12,11 +12,11 @@
     </tr>
     <tr>
       <th>納期</th>
-      <td><%= f.datetime_field :sample_at, step: 3000 %></td>
+      <td><%= f.datetime_field :delivery_date %></td>
     </tr>
     <tr>
       <th>仕様</th>
-      <td><%= f.text_area :sample_at, step: 3000 %></td>
+      <td><%= f.text_area :specification, step: 3000 %></td>
     </tr>
   </table>
   <%= f.submit "登録" %>

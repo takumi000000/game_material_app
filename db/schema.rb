@@ -38,8 +38,12 @@ ActiveRecord::Schema.define(version: 2021_10_14_014432) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.string "title"
-    t.integer "material_storage_id"
+    t.string "title", null: false
+    t.integer "material_kind_id", null: false
+    t.datetime "delivery_date", null: false
+    t.integer "user_id", null: false
+    t.string "specification"
+    t.integer "order_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_014432) do
     t.string "name", default: "名無しのユーザー"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "check_job"
+    t.integer "check_job", default: 1
     t.string "introduction", default: ""
     t.binary "icon"
     t.string "reset_password_token"
