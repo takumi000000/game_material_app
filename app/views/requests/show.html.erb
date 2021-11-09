@@ -1,0 +1,38 @@
+<h1>依頼詳細</h1>
+
+<table>
+<tr>
+    <th>依頼タイトル</th>
+    <td><%= @request.title %></td>
+  </tr>
+  <tr>
+    <th>素材の種類</th>
+    <td><%= @request.material_kind.name %></td>
+  </tr>
+  <tr>
+    <th>依頼者</th>
+    <td><%= @request.user.email %></td>
+  </tr>
+  <tr>
+    <th>仕様</th>
+    <td><%= @request.specification %></td>
+  </tr>
+</table>
+
+<% @request_details.each_with_index do |request_detail, i| %>
+  <h2><%= "詳細依頼#{i+1}" %><h2>
+  <table>
+    <tr>
+      <th>依頼サイズ</th>
+      <td><%= request_detail.material_size %></td>
+    </tr>
+    <tr>
+      <th>依頼ジャンル</th>
+      <td><%= request_detail.material_genre.name %></td>
+    </tr>
+    <tr>
+      <th>依頼仕様</th>
+      <td><%= request_detail.specification %></td>
+    </tr>
+  </table>
+<% end %>

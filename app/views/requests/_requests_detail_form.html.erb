@@ -1,0 +1,18 @@
+<%= form_with url:requests_path, mathod: :post, local: true do |f| %>
+  <table>
+  <% @num.times do |i| %>
+    <tr>
+      <th><%= f.label "request_details#{i+1}_size", "依頼詳細#{i + 1}サイズ" %></th>
+      <td><%= f.text_field "requests_details[][size]", id: "request_details#{i+1}_size"%></td>
+    </tr>
+    <tr>
+      <th><%= f.label "request_details#{i+1}_material_genre_id", "依頼詳細#{i + 1}ジャンル" %></th>
+      <td><%= f.select "requests_details[][material_genre_id]", @genres_option, id: "request_details#{i+1}_material_genre_id" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "request_details#{i+1}_specification", "依頼詳細#{i + 1}仕様" %></th>
+      <td><%= f.text_area "requests_details[][specification]", id: "request_details#{i+1}_specification" %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
