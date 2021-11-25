@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_014432) do
+ActiveRecord::Schema.define(version: 2021_10_21_045255) do
 
   create_table "material_genres", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_10_14_014432) do
     t.integer "request_id", default: 0
     t.date "start_date"
     t.date "completion_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "request_details", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.integer "material_genre_id", null: false
+    t.string "material_size", null: false
+    t.string "specification"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

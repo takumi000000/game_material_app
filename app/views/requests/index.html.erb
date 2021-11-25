@@ -1,8 +1,6 @@
-<p>依頼一覧<p>
+<h1>依頼一覧</h1>
 
-<p><%= link_to "topに戻る", root_path %></p>
-
-<% @requests.each do |request| %>
+<p><% @requests.each do |request| %></p>
 <table>
   <tr>
     <th>依頼タイトル</th>
@@ -21,4 +19,5 @@
     <td><%= request.specification %></td>
   </tr>
 </table>
+
 <% end %>

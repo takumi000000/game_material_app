@@ -1,23 +1,27 @@
 <h1>依頼作成</h1>
-<%= link_to "Topに戻る", root_path %>
-<%= form_with model: @request, multipart: true, local: true do |f| %>
+<%= form_with url:requests_path, mathod: :post, local: true do |f| %>
   <table>
     <tr>
-      <th>依頼タイトル</th>
-      <td><%= f.text_field :title %></td>
+      <th><%= f.label :title, "依頼タイトル" %></th>
+      <td><%= f.text_field "request[title]", value: @request.title %></td>
     </tr>
     <tr>
-      <th>素材の種類</th>
-      <td><%= f.select :material_kind_id, @kinds_option %></td>
+      <th><%= f.label :material_kind_id, "素材の種類" %></th>
+      <td><%= f.select "request[material_kind_id]", @kinds_option , value: @request.material_kind_id %></td>
     </tr>
     <tr>
-      <th>納期</th>
-      <td><%= f.datetime_field :delivery_date %></td>
+      <th><%= f.label :delivery_date, "納期" %></th>
+      <td><%= f.datetime_field "request[delivery_date]", value: @request.delivery_date %></td>
     </tr>
     <tr>
-      <th>仕様</th>
-      <td><%= f.text_area :specification, step: 3000 %></td>
+      <th><%= f.label :specification, "仕様" %></th>
+      <td><%= f.text_area "request[specification]", value: @request.specification %></td>
+    </tr>
+    <tr>
+      <th>枚数</th>
+      <td><%= f.select :num, [0,1,2,3,4,5], {}, onchange: "ajaxRequest('#{requests_num_path}');"  %></td>
     </tr>
   </table>
+  <div id="requests_detail_form"></div>
   <%= f.submit "登録" %>
 <% end %>

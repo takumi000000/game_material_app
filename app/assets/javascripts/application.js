@@ -10,7 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function ajaxRequest(urlPath){
+    // 追加コード
+    $.ajax({
+      type: 'GET', // リクエストのタイプ
+      url: urlPath, // リクエストを送信するURL
+      data:  { num: $("#num").val() }, // サーバーに送信するデータ
+      dataType: 'script' // サーバーから返却される型
+    })
+}

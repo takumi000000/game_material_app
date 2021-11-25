@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action only: [:new, :create, :edit, :update] do
+  before_action only: [:new, :create, :edit, :update, :num] do
     @kinds = MaterialKind.order("id")
     @kinds_option = []
     @kinds.each do |kind|

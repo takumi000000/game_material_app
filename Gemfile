@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 source 'https://rubygems.org'
 # Devise
 gem 'devise'
+gem "jquery-rails"
