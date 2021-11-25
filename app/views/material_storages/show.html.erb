@@ -3,6 +3,7 @@
 <h2><%= @material.title %></h2>
 <h2><%= @material.material_kind.name %></h2>
 <h2><%= @material.material_genre.name %></h2>
+<h2><%= @material.user.name %></h2>
 <%= image_tag "/images/#{@material.file_name}", size: "200x200" %>
 
 <%= link_to "作品一覧ページに戻る", material_storages_index_path %>
