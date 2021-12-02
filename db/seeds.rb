@@ -30,7 +30,8 @@ MaterialGenre.create!(name: "サンドボックス")
 MaterialGenre.create!(name: "ロールプレイング")
 MaterialGenre.create!(name: "テーブル")
 
-User.create!(name: "彪", email: "takeshi@takeshi", password: "abcdefg")
+User.create!(name: "たけし", email: "takeshi@takeshi", password: "abcdefg")
+User.create!(name: "ひろし", email: "hiroshi@hiroshi", password: "hijelmn")
 
 
 Request.create!(title: "RPGキャラクター作成", material_kind_id:1, delivery_date: "2022-01-01 00:00:00", user_id: 1, specification: "RPGのキャラクターを作成してほしい")
@@ -39,9 +40,9 @@ RequestDetail.create!(request_id: 1,material_genre_id: 1,material_size: "100x100
 RequestDetail.create!(request_id: 1,material_genre_id: 1,material_size: "100x100", specification: "ヒロインキャラクター イメージカラーはピンク")
 RequestDetail.create!(request_id: 1,material_genre_id: 1,material_size: "100x100", specification: "敵キャラクター 怪物イメージ")
 
-MaterialStorage.create!(file_name: "image0.png", title: "NFT", user_id: 1, material_kind_id: 4, material_genre_id: 1)
-MaterialStorage.create!(file_name: "image1.png", title: "スペースペンギン", user_id: 1, material_kind_id: 3, material_genre_id: 2)
-MaterialStorage.create!(file_name: "image2.png", title: "オオナンショウ", user_id: 1, material_kind_id: 2, material_genre_id: 3)
-MaterialStorage.create!(file_name: "image3.png", title: "エビフライ", user_id: 1, material_kind_id: 1, material_genre_id: 4)
+MaterialStorage.create!(file_name: "image0.png", title: "NFT", user_id: 2, material_kind_id: 4, material_genre_id: 1)
+MaterialStorage.create!(file_name: "image1.png", title: "スペースペンギン", user_id: 2, material_kind_id: 3, material_genre_id: 2)
+MaterialStorage.create!(file_name: "image2.png", title: "オオナンショウ", user_id: 2, material_kind_id: 2, material_genre_id: 3)
+MaterialStorage.create!(file_name: "image3.png", title: "エビフライ", user_id: 2, material_kind_id: 1, material_genre_id: 4)
 
 puts "データを挿入しました"

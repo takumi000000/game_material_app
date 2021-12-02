@@ -1,15 +1,29 @@
+<% if @user.id == current_user.id %>
 <h1>マイページ</h1>
+<h3> ユーザー名： <%= current_user.name %></h3>
+<% else %>
+<h1><%= @user.name %>のマイページ</h1>
+<% end %>
 
 <div class="my_page_head"><%= image_tag 'icon.png', size: '100x100', class:'icon' %></div>
 
-<%= link_to "依頼を投稿する", new_request_path %>
-<%= link_to "投稿依頼を確認する", requests_path %>
+<% if @user.id == current_user.id %>
+  <% if @user.check_job == 1 %>
+    <%= link_to "依頼を投稿する", new_request_path %>
+  <% else %>
+    <%= link_to "作品を投稿する", material_storages_new_path %>
+  <% end %>
+<% end %>
+
+<% if @user.check_job == 1 %>
+    <%= link_to "ユーザーの依頼を確認する", requests_path %>
+  <% else %>
+    <%= link_to "ユーザーの作品を確認する", material_storages_path %>
+  <% end %>
 <%= link_to "チャット", chat_rooms_show_path %>
+<%= link_to "作品一覧ページに移動する", material_storages_index_path %>
 
 
-<h3> ユーザー名： <%= current_user.name %></h4>
 <div>
   <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a> <!-- ログアウトをする -->
 </div>
-
-<%= link_to "作品一覧ページに移動する", material_storages_index_path %>

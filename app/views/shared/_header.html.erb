@@ -1,10 +1,12 @@
 <%= link_to "topに戻る", root_path %>
+
 <%= link_to "作品一覧ページに移動する", material_storages_index_path %>
+
 <%= link_to "投稿一覧に戻る", requests_path %>
+
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
   <%= link_to "マイページに移動する", "/user/#{current_user.id}" %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <h3> ユーザー名： <%= current_user.name %></h4>
 <% else %>
   <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
   <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
