@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  get 'chat_rooms/show'
   get 'material_storages/index'
   get 'material_storages/new'
   get 'requests/num'
   root 'top#index'
 
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
-  resources :contractor
-  resources :requester
+  resources :user
   resources :material_storages
   resources :requests
   resources :requests_details

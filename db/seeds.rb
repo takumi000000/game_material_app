@@ -30,5 +30,11 @@ MaterialGenre.create!(name: "サンドボックス")
 MaterialGenre.create!(name: "ロールプレイング")
 MaterialGenre.create!(name: "テーブル")
 
+User.create!(name: "彪", email: "takeshi@takeshi", password: "abcdefg")
+
+MaterialStorage.create!(file_name: "image0.png", title: "NFT", user_id: 1, material_kind_id: 4, material_genre_id: 1)
+MaterialStorage.create!(file_name: "image1.png", title: "スペースペンギン", user_id: 1, material_kind_id: 3, material_genre_id: 2)
+MaterialStorage.create!(file_name: "image2.png", title: "オオナンショウ", user_id: 1, material_kind_id: 2, material_genre_id: 3)
+MaterialStorage.create!(file_name: "image3.png", title: "エビフライ", user_id: 1, material_kind_id: 1, material_genre_id: 4)
 
 puts "データを挿入しました"

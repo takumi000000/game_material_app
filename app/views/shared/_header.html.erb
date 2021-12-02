@@ -2,11 +2,7 @@
 <%= link_to "作品一覧ページに移動する", material_storages_index_path %>
 <%= link_to "投稿一覧に戻る", requests_path %>
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <% if current_user.check_job == 1 %>
-    <%= link_to "マイページに移動する", "/requester/#{current_user.id}" %>
-  <% elsif current_user.check_job == 2 %>
-    <%= link_to "マイページに移動する", "/contractor/#{current_user.id}" %>
-  <% end %>
+  <%= link_to "マイページに移動する", "/user/#{current_user.id}" %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <h3> ユーザー名： <%= current_user.name %></h4>
 <% else %>
