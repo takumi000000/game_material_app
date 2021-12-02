@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <th>依頼者</th>
-    <td><%= request.user.name %></td>
+    <td><%= link_to request.user.name, "/user/#{request.user.id}" %></td>
   </tr>
   <tr>
     <th>仕様</th>

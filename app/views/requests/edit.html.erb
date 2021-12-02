@@ -1,4 +1,4 @@
-<h1>依頼詳細</h1>
+<h1>受注確認画面</h1>
 
 <table>
   <tr>
@@ -22,7 +22,6 @@
     <td><%= @request.specification %></td>
   </tr>
 </table>
-<%= link_to "依頼を受注する", edit_request_path%>
 <% @request_details.each_with_index do |request_detail, i| %>
   <h2><%= "詳細依頼#{i+1}" %><h2>
   <table>

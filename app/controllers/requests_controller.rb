@@ -43,6 +43,15 @@ class RequestsController < ApplicationController
     @request_details = RequestDetail.where(request_id:@request.id)
   end
 
+  def edit
+    @request = Request.find(params[:id])
+    @request_details = RequestDetail.where(request_id:@request.id)
+  end
+
+  def update
+    @request = Request.find(params[:id])
+  end
+
   def num
     @num = params[:num].to_i
   end
