@@ -22,7 +22,9 @@
   <% end %>
 <%= link_to "チャット", chat_rooms_show_path %>
 <%= link_to "作品一覧ページに移動する", material_storages_index_path %>
+<% if @user.id == current_user.id %>
 <%= link_to "編集", edit_user_path %>
+<% end %>
 
 <h3> ユーザー名： <%= current_user.name %></h3>
 <h4>自己紹介</h4>
