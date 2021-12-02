@@ -1,1 +1,19 @@
-編集ページ
+<h1>マイページ編集</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div class="user">
+    <div class="my_page_head"><%= image_tag "icon.png", size: '100x100', class:'icon' %></div>
+    <table>
+      <tr>
+        <th><%= "ユーザー名"%></th>
+        <td><%= f.text_field :name, default: current_user.name %></td>
+      </tr>
+      <tr>
+        <th><%= "自己紹介文"%></th>
+        <td><%= f.text_field :introduction, default: current_user.introduction %></td>
+      </tr>
+    </table>
+  <%= f.submit "更新" %><br>
+  <%= link_to "マイページ", user_path %>
+  </div>
+<% end %>
