@@ -3,6 +3,7 @@
 <%= form_with model: @user, local: true do |f| %>
   <div class="user">
     <div class="my_page_head"><%= image_tag "icon.png", size: '100x100', class:'icon' %></div>
+    <%= f.file_field "プロフィール画像"%>
     <table>
       <tr>
         <th><%= "ユーザー名"%></th>
@@ -10,7 +11,7 @@
       </tr>
       <tr>
         <th><%= "自己紹介文"%></th>
-        <td><%= f.text_field :introduction, default: current_user.introduction %></td>
+        <td><%= f.text_area :introduction, default: current_user.introduction %></td>
       </tr>
     </table>
   <%= f.submit "更新" %><br>
