@@ -22,7 +22,11 @@
   <% end %>
 <%= link_to "チャット", chat_rooms_show_path %>
 <%= link_to "作品一覧ページに移動する", material_storages_index_path %>
+<%= link_to "編集", edit_user_path %>
 
+<h3> ユーザー名： <%= current_user.name %></h3>
+<h4>自己紹介</h4>
+<p><%= current_user.introduction %></p>
 
 <div>
   <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a> <!-- ログアウトをする -->
