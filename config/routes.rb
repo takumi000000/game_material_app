@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :user
   get "user/self_requests/:user_id" => "user#self_requests"
   get "user/self_material_storages/:user_id" => "user#self_material_storages"
+  get "user/self_order/:user_id" => "user#self_orders"
   resources :material_storages
   resources :requests
   resources :requests_details
