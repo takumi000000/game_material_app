@@ -20,9 +20,18 @@ class UserController < ApplicationController
   end
 
   def self_requests
-
+    @requests = Request.where(user_id: params[:user_id])
   end
 
   def self_material_storages
+    @materials = MaterialStorage.where(user_id: params[:user_id])
+  end
+
+  def self_orders
+    @orders = Request.where(order_user_id: params[:user_id])
+    @order_details = []
+    @orders.each do |order|
+      @order_details << RequestDetail.where(request_id: order.id)
+    end
   end
 end

@@ -19,7 +19,7 @@
       <%= link_to "依頼投稿", new_request_path %>
     <% elsif @user.check_job == 2 %>
       <%= link_to "作品投稿", material_storages_new_path %>
-      <%= link_to "受注依頼", material_storages_path %>
+      <%= link_to "受注依頼", controller: 'user',action:'self_orders',user_id: @user.id %>
     <% end %>
     <%= link_to "チャット", chat_rooms_show_path %>
     <%= link_to "編集", edit_user_path %>

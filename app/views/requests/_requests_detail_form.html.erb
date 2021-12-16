@@ -4,6 +4,8 @@
     <tr>
       <th><%= f.label "request_details#{i+1}_size", "依頼詳細#{i + 1}サイズ" %></th>
       <td><%= f.text_field "requests_details[][size]", id: "request_details#{i+1}_size"%></td>
+      <%# 途中 %>
+      <!-- <td><%= f.text_field "requests_details[][size]", id: "request_details#{i+1}_size"%>×<%= f.text_field "requests_details[][size]", id: "request_details#{i+1}_size"%>px</td> -->
     </tr>
     <tr>
       <th><%= f.label "request_details#{i+1}_material_genre_id", "依頼詳細#{i + 1}ジャンル" %></th>
