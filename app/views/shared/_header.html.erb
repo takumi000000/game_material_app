@@ -1,11 +1,13 @@
-<%= link_to "topに戻る", root_path %>
+<%= link_to "top", root_path %>
 
-<%= link_to "作品一覧ページに移動する", material_storages_index_path %>
+<%= link_to "作品一覧", material_storages_index_path %>
 
-<%= link_to "投稿一覧に戻る", requests_path %>
+<%= link_to "依頼一覧", requests_path %>
+
+<%= link_to "ユーザー一覧", user_index_path %>
 
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <%= link_to "マイページに移動する", "/user/#{current_user.id}" %>
+  <%= link_to "マイページ", "/user/#{current_user.id}" %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->

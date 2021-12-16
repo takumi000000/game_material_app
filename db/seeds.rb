@@ -30,8 +30,8 @@ MaterialGenre.create!(name: "サンドボックス")
 MaterialGenre.create!(name: "ロールプレイング")
 MaterialGenre.create!(name: "テーブル")
 
-User.create!(name: "たけし", email: "takeshi@takeshi", password: "abcdefg")
-User.create!(name: "ひろし", email: "hiroshi@hiroshi", password: "hijelmn")
+User.create!(name: "ひろし", email: "hiroshi@hiroshi", password: "abcdefg", check_job: 1, introduction: "ひろしです。")
+User.create!(name: "たけし", email: "takeshi@takeshi", password: "hijklmn", check_job: 2, introduction: "たけしです。")
 
 
 Request.create!(title: "RPGキャラクター作成", material_kind_id:1, delivery_date: "2022-01-01 00:00:00", user_id: 1, specification: "RPGのキャラクターを作成してほしい")

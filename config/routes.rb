@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   resources :user
+  get "user/self_requests/:user_id" => "user#self_requests"
+  get "user/self_material_storages/:user_id" => "user#self_material_storages"
   resources :material_storages
   resources :requests
   resources :requests_details

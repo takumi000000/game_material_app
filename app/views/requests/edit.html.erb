@@ -39,3 +39,12 @@
     </tr>
   </table>
 <% end %>
+<% if @request.order_user_id == nil %>
+  <%= form_with url:request_path, method: :put, local: true do |f| %>
+    <%= f.radio_button :verification, true %>受注する
+    <%= f.radio_button :verification, false, checked:true %>受注しない
+    <%= f.submit "受注" %>
+  <% end %>
+<% else %>
+  <p>この依頼は受注済みです</p>
+<% end %>

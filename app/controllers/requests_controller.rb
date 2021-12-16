@@ -1,14 +1,6 @@
 class RequestsController < ApplicationController
   def index
-    if user_signed_in?
-      if current_user.check_job == 1
-        @requests = Request.where(user_id: current_user.id)
-      else
-        @requests = Request.order("id")
-      end
-    else
-      @requests = Request.order("id")
-    end
+    @requests = Request.order("created_at").reverse
   end
 
   def new
@@ -50,6 +42,12 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
+    @request.order_user_id = current_user.id if params[:verification]
+    if @request.save
+      redirect_to @request
+    else
+      render "edit"
+    end
   end
 
   def num

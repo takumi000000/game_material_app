@@ -1,6 +1,6 @@
 class MaterialStoragesController < ApplicationController
   def index
-    @materials = MaterialStorage.order("id")
+    @materials = MaterialStorage.order("created_at").reverse
   end
 
   def new
