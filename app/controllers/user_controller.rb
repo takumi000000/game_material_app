@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   def index
+    @users = User.order("created_at").reverse
   end
   def show
     @user = User.find(params[:id])
@@ -16,5 +17,12 @@ class UserController < ApplicationController
     else
       render edit_user_path
     end
+  end
+
+  def self_requests
+
+  end
+
+  def self_material_storages
   end
 end

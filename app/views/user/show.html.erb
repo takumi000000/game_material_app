@@ -1,33 +1,32 @@
-<% if @user.id == current_user.id %>
-<h1>マイページ</h1>
-<h3> ユーザー名： <%= current_user.name %></h3>
+<% if user_signed_in? %>
+  <% if @user.id == current_user.id %>
+    <h1>マイページ</h1>
+  <% else %>
+    <h1><%= @user.name %>のマイページ</h1>
+  <% end %>
 <% else %>
-<h1><%= @user.name %>のマイページ</h1>
+  <h1><%= @user.name %>のマイページ</h1>
 <% end %>
 
+<h3> ユーザー名： <%= @user.name %></h3>
 <div class="my_page_head"><%= image_tag 'icon.png', size: '100x100', class:'icon' %></div>
+<h4>自己紹介</h4>
+<p><%= @user.introduction %></p>
 
-<% if @user.id == current_user.id %>
-  <% if @user.check_job == 1 %>
-    <%= link_to "依頼を投稿する", new_request_path %>
-  <% else %>
-    <%= link_to "作品を投稿する", material_storages_new_path %>
+<% if user_signed_in? %>
+  <% if @user.id == current_user.id %>
+    <% if @user.check_job == 1 %>
+      <%= link_to "依頼投稿", new_request_path %>
+    <% elsif @user.check_job == 2 %>
+      <%= link_to "作品投稿", material_storages_new_path %>
+      <%= link_to "受注依頼", material_storages_path %>
+    <% end %>
+    <%= link_to "チャット", chat_rooms_show_path %>
+    <%= link_to "編集", edit_user_path %>
   <% end %>
 <% end %>
-
 <% if @user.check_job == 1 %>
-    <%= link_to "ユーザーの依頼を確認する", requests_path %>
-  <% else %>
-    <%= link_to "ユーザーの作品を確認する", material_storages_path %>
-  <% end %>
-<%= link_to "チャット", chat_rooms_show_path %>
-<%= link_to "作品一覧ページに移動する", material_storages_index_path %>
-<%= link_to "編集", edit_user_path %>
-
-<h3> ユーザー名： <%= current_user.name %></h3>
-<h4>自己紹介</h4>
-<p><%= current_user.introduction %></p>
-
-<div>
-  <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a> <!-- ログアウトをする -->
-</div>
+<%= link_to "#{@user.name}の依頼一覧", controller: 'user',action:'self_requests',user_id: @user.id %>
+<% elsif @user.check_job == 2 %>
+<%= link_to "#{@user.name}の作品一覧", controller: 'user',action:'self_material_storages',user_id: @user.id %>
+<% end %>

@@ -1,4 +1,21 @@
-<h1>依頼者ページ</h1>
-
-<%= link_to "topに戻る", root_path %>
-<%= link_to "作品一覧ページに移動する", material_storages_index_path %>
+<h1>ユーザー一覧</h1>
+<% if @users.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>コメント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag 'icon.png', size: '30x30', class:'icon' %><%= link_to user.name, "/user/#{user.id}" %></td>
+          <td><%= user.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+<p>ユーザーがいません</p>
+<% end %>

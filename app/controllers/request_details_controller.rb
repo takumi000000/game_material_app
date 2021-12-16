@@ -1,13 +1,10 @@
 class RequestDetailsController < ApplicationController
-  def show
-
-  end
   def new
     @request_detail = RequestDetail.new()
   end
   def create
     @request_detail = RequestDetail.new(request_detail_params)
-  end 
+  end
   private
   def request_details
     attrs = [

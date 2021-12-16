@@ -1,23 +1,27 @@
 <h1>依頼一覧</h1>
 
-<p><% @requests.each do |request| %></p>
-<table>
-  <tr>
-    <th>依頼タイトル</th>
-    <td><%= link_to(request.title, request_path(request)) %></td>
-  </tr>
-  <tr>
-    <th>素材の種類</th>
-    <td><%= request.material_kind.name %></td>
-  </tr>
-  <tr>
-    <th>依頼者</th>
-    <td><%= link_to request.user.name, "/user/#{request.user.id}" %></td>
-  </tr>
-  <tr>
-    <th>仕様</th>
-    <td><%= request.specification %></td>
-  </tr>
-</table>
 
+<% if @requests.present? %>
+  <p><% @requests.each do |request| %></p>
+  <table>
+    <tr>
+      <th>依頼タイトル</th>
+      <td><%= link_to(request.title, request_path(request)) %></td>
+    </tr>
+    <tr>
+      <th>素材の種類</th>
+      <td><%= request.material_kind.name %></td>
+    </tr>
+    <tr>
+      <th>依頼者</th>
+      <td><%= link_to request.user.name, "/user/#{request.user.id}" %></td>
+    </tr>
+    <tr>
+      <th>仕様</th>
+      <td><%= request.specification %></td>
+    </tr>
+  </table>
+  <% end %>
+<% else %>
+<p>依頼はありません</p>
 <% end %>

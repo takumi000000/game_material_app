@@ -1,7 +1,11 @@
 <h1>投稿作品一覧</h1>
 
-<% @materials.each do |material| %>
-<%= image_tag "/images/#{material.file_name}", size: "200x200" %>
-<h3><%= link_to "作者：#{material.user.name}", "/user/#{material.user.id}"%></h3>
-<h3><%= link_to(material.title, material_storage_path(material)) %></h3>
+<% if @materials.present? %>
+  <% @materials.each do |material| %>
+  <%= image_tag "/images/#{material.file_name}", size: "200x200" %>
+  <h3><%= link_to "作者：#{material.user.name}", "/user/#{material.user.id}"%></h3>
+  <h3><%= link_to(material.title, material_storage_path(material)) %></h3>
+  <% end %>
+<% else %>
+  <p>投稿作品はありません</p>
 <% end %>
