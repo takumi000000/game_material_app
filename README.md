@@ -25,3 +25,9 @@ Things you may want to cover:
 
 http://localhost:3000/users/sign_in
 "# game_material_app" 
+
+追加要件
+[]パスワードを忘れたときの再登録フォーム
+[]外部SNS連携
+[]外部SNSを使ったサインアップ
+[]
