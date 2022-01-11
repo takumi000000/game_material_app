@@ -1,5 +1,7 @@
 # README
 
+<img src="https://emojis.slackmojis.com/emojis/images/1597609887/10125/quad_parrot.gif?1597609887" width="100"/>
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
